@@ -10,9 +10,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from bettercode.simple_workflow.visualization import (
-    generate_clustered_heatmap,
-)
+from bettercode.simple_workflow import generate_clustered_heatmap
 
 
 def main():

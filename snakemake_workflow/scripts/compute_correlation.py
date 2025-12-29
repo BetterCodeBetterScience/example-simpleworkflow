@@ -1,32 +1,29 @@
-"""Snakemake script for filtering data to numerical columns."""
+"""Snakemake script for computing correlation matrix."""
 
 from pathlib import Path
 
 import pandas as pd
 
-
-def filter_numerical_columns(df: pd.DataFrame) -> pd.DataFrame:
-    """Filter a dataframe to keep only numerical columns."""
-    return df.select_dtypes(include=["number"])
-
+from bettercode.simple_workflow import compute_correlation_matrix
 
 def main():
-    """Filter data to numerical columns."""
+    """Compute Spearman correlation matrix."""
     # ruff: noqa: F821
     input_path = Path(snakemake.input[0]).expanduser()
     output_path = Path(snakemake.output[0]).expanduser()
+    method = snakemake.params.method
 
     # Load data
     df = pd.read_csv(input_path, index_col=0)
     print(f"Loaded {df.shape} from {input_path}")
 
-    # Filter to numerical columns
-    df_num = filter_numerical_columns(df)
-    print(f"Filtered to {df_num.shape} (numerical columns only)")
+    # Compute correlation
+    corr_matrix = compute_correlation_matrix(df, method=method)
+    print(f"Computed {method} correlation matrix: {corr_matrix.shape}")
 
     # Save
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    df_num.to_csv(output_path)
+    corr_matrix.to_csv(output_path)
     print(f"Saved to {output_path}")
 
 

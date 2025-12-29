@@ -7,7 +7,10 @@ clean:
 	-rm -rf $(OUTPUT_DIR)/*
 
 run:
-	snakemake --cores 1 --sdm conda --config output_dir=$(OUTPUT_DIR)
+	uv run snakemake --cores 1 --config output_dir=$(OUTPUT_DIR)
+
+run-conda:
+	uv run snakemake --cores 1 --sdm conda --config output_dir=$(OUTPUT_DIR)
 
 lint:
 	snakemake --sdm conda --lint --cores 1 --config output_dir=$(OUTPUT_DIR)

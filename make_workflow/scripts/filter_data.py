@@ -10,9 +10,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from bettercode.simple_workflow.filter_data import (
-    filter_numerical_columns,
-)
+from bettercode.simple_workflow import filter_numerical_columns
 
 
 def main():

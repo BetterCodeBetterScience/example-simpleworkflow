@@ -10,9 +10,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from bettercode.simple_workflow.correlation import (
-    compute_spearman_correlation,
-)
+from bettercode.simple_workflow import compute_spearman_correlation
 
 
 def main():
