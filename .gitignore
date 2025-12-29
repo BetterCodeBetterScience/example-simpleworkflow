@@ -6,6 +6,7 @@ __pycache__
 .env
 ._*
 .snakemake
+.python-version
 
 # Workflow output directories
 */output/
