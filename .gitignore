@@ -8,7 +8,7 @@ __pycache__
 .snakemake
 
 # Workflow output directories
-**/simple_workflow/*/output/
+*/output/
 
 data
 exports
