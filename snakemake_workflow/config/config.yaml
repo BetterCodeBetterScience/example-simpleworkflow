@@ -1,5 +1,8 @@
 # Configuration for the simple correlation Snakemake workflow
 
+# Container image (used with --sdm apptainer)
+container: "docker://poldrack/simple-workflow:latest"
+
 # Data URLs
 meaningful_variables_url: "https://raw.githubusercontent.com/IanEisenberg/Self_Regulation_Ontology/refs/heads/master/Data/Complete_02-16-2019/meaningful_variables_clean.csv"
 demographics_url: "https://raw.githubusercontent.com/IanEisenberg/Self_Regulation_Ontology/refs/heads/master/Data/Complete_02-16-2019/demographics.csv"

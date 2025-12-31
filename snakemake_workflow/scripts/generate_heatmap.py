@@ -1,12 +1,15 @@
 """Snakemake script for generating clustered heatmap."""
 
+import sys
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-from bettercode.simple_workflow import generate_clustered_heatmap
+# Add workflow directory to path for local simple_workflow module
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from simple_workflow import generate_clustered_heatmap
 
 
 def main():

@@ -1,10 +1,13 @@
 """Snakemake script for filtering data to numerical columns."""
 
+import sys
 from pathlib import Path
 
 import pandas as pd
 
-from bettercode.simple_workflow import filter_numerical_columns
+# Add workflow directory to path for local simple_workflow module
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from simple_workflow import filter_numerical_columns
 
 def main():
     """Filter data to numerical columns."""

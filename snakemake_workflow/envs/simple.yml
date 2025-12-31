@@ -1,8 +1,8 @@
-name: bettercode
+name: simple_workflow
 channels:
   - conda-forge
 dependencies:
-  - numpy=2.4.0
-  - pandas=2.3.3
-  - matplotlib==3.10.8
-  - seaborn==0.13.2
+  - python>=3.10
+  - pandas
+  - matplotlib
+  - seaborn
