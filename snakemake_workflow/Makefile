@@ -1,4 +1,4 @@
-OUTPUT_DIR := /Users/poldrack/data_unsynced/BCBS/simple_workflow/wf_snakemake
+OUTPUT_DIR := /data1/bcbs_data/simple_workflow/wf_snakemake
 DOCKER_IMAGE := poldrack/simple-workflow
 DOCKER_TAG := latest
 
