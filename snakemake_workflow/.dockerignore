@@ -1,0 +1,19 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+
+# Snakemake
+.snakemake/
+
+# IDE
+.vscode/
+.idea/
+
+# Not needed in container image
+Makefile
+*.md
