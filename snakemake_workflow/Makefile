@@ -39,6 +39,11 @@ export-env:
 	-mkdir envs
 	conda env export -n bettercode > envs/bettercode.yml
 
+# -- passes arguments to snakemake
+prov:
+	# cd $(OUTPUT_DIR);  uv run --project $(CURDIR) python -m makeprov.snakemake -- --snakefile $(CURDIR)/Snakefile --cores 1  --nolock
+	uv run python -m makeprov.snakemake --prov-path $(OUTPUT_DIR) -- --snakefile $(CURDIR)/Snakefile --cores 1  --nolock
+
 # Container image management
 docker-build:
 	docker build -t $(DOCKER_IMAGE):$(DOCKER_TAG) .

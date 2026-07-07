@@ -15,12 +15,8 @@ $(OUTPUT_DIR)/data/demographics.csv $(OUTPUT_DIR)/data/meaningful_variables.csv:
 	mkdir -p $(OUTPUT_DIR)/data $(OUTPUT_DIR)/results $(OUTPUT_DIR)/figures
 	uv run python scripts/download_data.py $(OUTPUT_DIR)/data
 
-$(OUTPUT_DIR)/data/demographics_numerical.csv: $(OUTPUT_DIR)/data/demographics.csv
-	@echo "Filtering demographics data..."
-	uv run python scripts/filter_data.py $(OUTPUT_DIR)/data
-
-$(OUTPUT_DIR)/data/meaningful_variables_numerical.csv: $(OUTPUT_DIR)/data/meaningful_variables.csv
-	@echo "Filtering meaningful variables data..."
+$(OUTPUT_DIR)/data/%_numerical.csv: $(OUTPUT_DIR)/data/%.csv
+	@echo "Filtering $* data..."
 	uv run python scripts/filter_data.py $(OUTPUT_DIR)/data
 
 $(OUTPUT_DIR)/data/joined_data.csv: $(OUTPUT_DIR)/data/demographics_numerical.csv $(OUTPUT_DIR)/data/meaningful_variables_numerical.csv
