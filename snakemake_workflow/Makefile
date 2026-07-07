@@ -1,4 +1,4 @@
-OUTPUT_DIR := /data1/bcbs_data/simple_workflow/wf_snakemake
+OUTPUT_DIR := /Users/poldrack/data_unsynced/BCBS/simple_workflow/wf_snakemake
 DOCKER_IMAGE := poldrack/simple-workflow
 DOCKER_TAG := latest
 
@@ -16,6 +16,9 @@ run-conda:
 
 run-apptainer:
 	uv run snakemake --cores 1 --sdm apptainer -d $(OUTPUT_DIR)
+
+summary:
+	uv run snakemake --summary --cores 1 -d $(OUTPUT_DIR)
 
 lint:
 	snakemake --lint --cores 1 -d $(OUTPUT_DIR)
